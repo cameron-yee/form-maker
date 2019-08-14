@@ -1,0 +1,1 @@
+exports.TestTemplate = require('./test-template').TestTemplate

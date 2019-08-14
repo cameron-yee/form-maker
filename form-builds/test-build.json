@@ -1,0 +1,22 @@
+{
+  "form_template": "TestTemplate",
+  "save_name": "test-form.js",
+  "fields": [
+    {
+      "name": "firstname",
+      "form_snippet": "NonEmptyTextField",
+      "required": true,
+      "form_snippet_data": {
+        "id": "firstname",
+        "invalid_message": "Please enter a first name.",
+        "label": "First Name",
+        "state_name": "firstname"
+      }
+    }
+  ],
+  "form_template_replacements": ["Success message", "Error message"],
+  "backend": "",
+  "queryFunction": "",
+  "functions": ["sendRegistrationCode(form_data)"]
+}
+
