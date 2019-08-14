@@ -13,6 +13,10 @@
 6. Add each created form snippet to the exports in form-snippets/index.js.
 7. Add a form-build file for each form in the form-builds directory. Fields have a data key to pass data to the corresponding form snippet.
 8. Run `$ node main.js` to build the forms. They will save to the dest directory.
+9. The indentation formatting isn't perfect, but can be fixed in VSCode really easily by executing the formatting shortcut:
+  * Windows: Shift + Alt + F
+  * MacOS: Shift + Option + F
+  * Ubuntu: Ctrl + Shift + I (maybe other Linux???)
 
 ## TODO
 

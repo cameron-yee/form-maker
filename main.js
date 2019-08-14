@@ -6,15 +6,25 @@ const FormBuilds = require('./form-builds')
 // 1. Loop through each form build
 Object.keys(FormBuilds).map(build => {
   fields = []
+  state = []
 
   // 2. Insert data into field snippet and add snippet to list of fields
   for (let field of FormBuilds[build].fields) {
     let filled_snippet_field = FormSnippets[field.form_snippet](field.form_snippet_data)
     fields.push(filled_snippet_field)
+
+    if (field.hasOwnProperty('state_initial_value')) {
+      state.push(`${field.name}: ${field.state_initial_value},`)
+    }
   }
 
   // 3. Insert fields in template
-  let filled_template = FormTemplates[FormBuilds[build].form_template](fields, FormBuilds[build].form_template_replacements)
+  let filled_template =
+    FormTemplates[FormBuilds[build].form_template](
+      fields.join('\n'),
+      FormBuilds[build].form_template_replacements,
+      state.join('\n')
+    )
 
   // 5. Write form to save file
   const writeForms = () => {

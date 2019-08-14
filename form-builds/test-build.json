@@ -6,11 +6,24 @@
       "name": "firstname",
       "form_snippet": "NonEmptyTextField",
       "required": true,
+      "state_initial_value": "undefined",
       "form_snippet_data": {
         "id": "firstname",
         "invalid_message": "Please enter a first name.",
         "label": "First Name",
         "state_name": "firstname"
+      }
+    },
+    {
+      "name": "lastname",
+      "form_snippet": "NonEmptyTextField",
+      "required": true,
+      "state_initial_value": "undefined",
+      "form_snippet_data": {
+        "id": "lastname",
+        "invalid_message": "Please enter a last name.",
+        "label": "Last Name",
+        "state_name": "lirstname"
       }
     }
   ],
