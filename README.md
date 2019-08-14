@@ -1,5 +1,9 @@
 # Form Maker
 
+## Installation
+1. Make sure Node.js is installed.
+2. Clone GitHub repo: `git clone https://github.com/cameron-yee/form-maker.git`
+
 ## Usage
 
 1. Create a build file for each form in the form-builds directory.
