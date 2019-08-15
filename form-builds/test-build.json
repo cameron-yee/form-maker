@@ -1,10 +1,12 @@
 {
   "form_template": "TestTemplate",
   "save_name": "test-form.js",
+  "form_name": "TestForm",
   "fields": [
     {
       "name": "firstname",
       "form_snippet": "NonEmptyTextField",
+      "import_path": "../fields/non-empty-text-field",
       "required": true,
       "state_initial_value": "undefined",
       "form_snippet_data": {
@@ -30,6 +32,5 @@
   "form_template_replacements": ["Success message", "Error message"],
   "backend": "",
   "queryFunction": "",
-  "functions": ["sendRegistrationCode(form_data)"]
+  "functions": ["sendRegistrationCode(form_data)", "other(test)"]
 }
-

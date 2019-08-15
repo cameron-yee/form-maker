@@ -1,12 +1,17 @@
-exports.TestTemplate = (fields, replacements, state) => {
+exports.TestTemplate = (build, snippets, state) => {
   let filled_template =
 `import React, { Component } from 'react'
 
-const Form = class extends Component {
+const ${build.form_name} = class extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      ${state}
+      ${(state.map(state_array => {
+          return (
+            `${state_array[0]}: ${state_array[1]},\n`
+          )
+        })).join('')
+      }
 
       template_state_var: true
     }
@@ -16,18 +21,18 @@ const Form = class extends Component {
     return (
       <React.Fragment>
         <div>
-          ${fields}
+          ${snippets}
         </div>
         <div>
-          <p>${replacements[0]}</p>
-          <p>${replacements[1]}</p>
+          <p>${build.form_template_replacements[0]}</p>
+          <p>${build.form_template_replacements[1]}</p>
         </div>
       </React.Fragment>
     )
   }
 }
 
-export default Form
+export default ${build.form_name}
 `
 
   return filled_template

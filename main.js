@@ -14,23 +14,25 @@ Object.keys(FormBuilds).map(build => {
     fields.push(filled_snippet_field)
 
     if (field.hasOwnProperty('state_initial_value')) {
-      state.push(`${field.name}: ${field.state_initial_value},`)
+      state.push([field.name, field.state_initial_value, field.required ])
     }
   }
 
   // 3. Insert fields in template
   let filled_template =
     FormTemplates[FormBuilds[build].form_template](
+      // FormBuilds[build].form_name,
+      FormBuilds[build],
       fields.join('\n'),
-      FormBuilds[build].form_template_replacements,
-      state.join('\n')
+      // FormBuilds[build].form_template_replacements,
+      state
     )
 
   // 5. Write form to save file
   const writeForms = () => {
     fs.writeFile(`./dest/${FormBuilds[build].save_name}`, filled_template, err => {
       if (err) throw err
-      console.log('Forms have been saved in /dest directory.')
+      console.log(`${FormBuilds[build].form_name} Form have been saved in /dest directory.`)
     })
   }
 
